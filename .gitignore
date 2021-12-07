@@ -4,3 +4,7 @@ simplicio/out/
 simplicio/output/
 simplicio/src/test/
 simplicio/test
+
+simplicio/src/antlr/*
+
+simplicio.iml
