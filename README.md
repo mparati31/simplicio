@@ -65,7 +65,7 @@ Lo script genererà i file sorgenti latex ed il file compilato nella directory `
 
 ### Esecuzione *a mano*
 
-Per eseguire la compilazione manualmente digitare:
+Per eseguire manualmente digitare:
 ```shell
 $ cd simplicio/
 $ mkdir output
