@@ -4,9 +4,9 @@
 
 Per esempio passandogli in input l'espressione `3/(4+2)+2*(3:(4+5)+2^(6*1/2))`, l'output sarà:
 
-<center>
-    <img src="img/example.png" width=200>
-</center>
+<p align=center>
+    <img src="img/example.png" width=250>
+</p>
 
 Da notare che in ogni espressione:
 - la sottoespressione tra parentesi oggetto della semplificazione (se presente) è colorata in blu,
