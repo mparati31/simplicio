@@ -5,7 +5,6 @@ import exception.DivisionByZeroException;
 import listeners.LexerErrorListener;
 import listeners.ParserErrorListener;
 import org.antlr.v4.runtime.*;
-import test.Test;
 import tree.AbstractSyntaxTree;
 import tree.AbstractSyntaxTreeConverter;
 
@@ -35,8 +34,6 @@ public class Simplicio {
         AbstractSyntaxTreeConverter converter = new AbstractSyntaxTreeConverter();
 
         AbstractSyntaxTree ast = converter.visit(parser.start());
-
-        Test.printAST(ast);
 
         return new ExpressionStepIterator(ast);
     }

@@ -1,7 +1,6 @@
 package simplicio;
 
 import exception.DivisionByZeroException;
-import test.Test;
 import tree.AbstractSyntaxTree;
 import tree.AbstractSyntaxTreeStepCalculator;
 import tree.AbstractSyntaxTreeVisitor;
@@ -87,8 +86,6 @@ public class ExpressionStepIterator implements Iterator<String> {
 
         abstractSyntaxTree = res.getAbstractSyntaxTree();
         currentLatex = res.getLatex();
-
-        Test.printAST(abstractSyntaxTree);
 
         // Controlla se questo passaggio ha causato un'eccezione.
         if (res.getException() != null) {
