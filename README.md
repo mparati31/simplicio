@@ -9,15 +9,25 @@ Per esempio passandogli in input l'espressione `3/(4+2)+2*(3:(4+5)+2^(6*(3/2-1))
 </p> -->
 
 $$\frac{3}{4+2}+2\times\left(3:{\color{blue}{\left({\color{red}{\boxed{4+5}}}\right)}}+{2}^{6\times\left(\frac{3}{2}-1\right)}\right)$$
+
 $$\frac{3}{4+2}+2\times\left(3:{\color{green}{\boxed{9}}}+{2}^{6\times{\color{blue}{\left({\color{red}{\boxed{\frac{3}{2}-1}}}\right)}}}\right)$$
+
 $$\frac{3}{4+2}+2\times{\color{blue}{\left(3:9+{2}^{{\color{red}{\boxed{6\times{\color{green}{\boxed{\frac{1}{2}}}}}}}}\right)}}$$
+
 $$\frac{3}{4+2}+2\times{\color{blue}{\left(3:9+{\color{red}{\boxed{{2}^{{\color{green}{\boxed{3}}}}}}}\right)}}$$
+
 $$\frac{3}{4+2}+2\times{\color{blue}{\left({\color{red}{\boxed{3:9}}}+{\color{green}{\boxed{8}}}\right)}}$$
+
 $$\frac{3}{4+2}+2\times{\color{blue}{\left({\color{red}{\boxed{{\color{green}{\boxed{\frac{1}{3}}}}+8}}}\right)}}$$
+
 $$\frac{3}{{\color{red}{\boxed{4+2}}}}+2\times{\color{green}{\boxed{\frac{25}{3}}}}$$
+
 $${\color{red}{\boxed{\frac{3}{{\color{green}{\boxed{6}}}}}}}+2\times\frac{25}{3}$$
+
 $${\color{green}{\boxed{\frac{1}{2}}}}+{\color{red}{\boxed{2\times\frac{25}{3}}}}$$
+
 $${\color{red}{\boxed{\frac{1}{2}+{\color{green}{\boxed{\frac{50}{3}}}}}}}$$
+
 $${\color{green}{\boxed{\frac{103}{6}}}}$$
 
 Da notare che in ogni espressione:
