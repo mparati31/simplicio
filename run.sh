@@ -3,7 +3,7 @@
 cd simplicio
 
 if [ "$#" -ne 1 ]; then
-    echo "Atteso un parametro"
+    echo "Expected a parameter."
 else
     if [ ! -d "output" ]
     then

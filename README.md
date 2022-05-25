@@ -2,11 +2,23 @@
 
 **Simplicio** è un programma che semplifica espressioni matematiche mostrando tutti i passaggi fatti.
 
-Per esempio passandogli in input l'espressione `3/(4+2)+2*(3:(4+5)+2^(6*1/2))`, l'output sarà:
+Per esempio passandogli in input l'espressione `3/(4+2)+2*(3:(4+5)+2^(6*(3/2-1)))`, l'output sarà:
 
-<p align=center>
+<!-- <p align=center>
     <img src="img/example.png" width=250>
-</p>
+</p> -->
+
+$$\frac{3}{4+2}+2\times\left(3:{\color{blue}{\left({\color{red}{\boxed{4+5}}}\right)}}+{2}^{6\times\left(\frac{3}{2}-1\right)}\right)$$
+$$\frac{3}{4+2}+2\times\left(3:{\color{green}{\boxed{9}}}+{2}^{6\times{\color{blue}{\left({\color{red}{\boxed{\frac{3}{2}-1}}}\right)}}}\right)$$
+$$\frac{3}{4+2}+2\times{\color{blue}{\left(3:9+{2}^{{\color{red}{\boxed{6\times{\color{green}{\boxed{\frac{1}{2}}}}}}}}\right)}}$$
+$$\frac{3}{4+2}+2\times{\color{blue}{\left(3:9+{\color{red}{\boxed{{2}^{{\color{green}{\boxed{3}}}}}}}\right)}}$$
+$$\frac{3}{4+2}+2\times{\color{blue}{\left({\color{red}{\boxed{3:9}}}+{\color{green}{\boxed{8}}}\right)}}$$
+$$\frac{3}{4+2}+2\times{\color{blue}{\left({\color{red}{\boxed{{\color{green}{\boxed{\frac{1}{3}}}}+8}}}\right)}}$$
+$$\frac{3}{{\color{red}{\boxed{4+2}}}}+2\times{\color{green}{\boxed{\frac{25}{3}}}}$$
+$${\color{red}{\boxed{\frac{3}{{\color{green}{\boxed{6}}}}}}}+2\times\frac{25}{3}$$
+$${\color{green}{\boxed{\frac{1}{2}}}}+{\color{red}{\boxed{2\times\frac{25}{3}}}}$$
+$${\color{red}{\boxed{\frac{1}{2}+{\color{green}{\boxed{\frac{50}{3}}}}}}}$$
+$${\color{green}{\boxed{\frac{103}{6}}}}$$
 
 Da notare che in ogni espressione:
 - la sottoespressione tra parentesi oggetto della semplificazione (se presente) è colorata in blu,
@@ -28,33 +40,26 @@ Da notare inoltre che quando sono presenti più somme e differenze (o moltiplica
 
 Questo progetto utilizza **ANTLR4** come *parser generator*, la cui versione 4.3.9 è scaricabile dal [seguente link](https://www.antlr.org/download/antlr-4.9.3-complete.jar).
 
-Successivamente bisogna allocare la variabile d'ambiente `ANTLR4_JAR` che contenga l'indirizzo del file scaricato.
+Successivamente bisogna allocare la variabile d'ambiente `ANTLR4_JAR` che punti al file jar scaricato.
 
 Su Linux e MacOS digitare:
 ```bash
 $ export ANTLR4_JAR=path
 ```
-dove `path` è il percorso assoluto del file appena scaricato.
+dove `path` è il *percorso assoluto* del file appena scaricato.
 
-## Compilazione
+## Compilazione (solo Linux)
 
-Per generare il *lexer* ed il *parser* digitare:
+Per compilare basta eseguire lo script `compile.sh`.
+
+Digitare:
 ```bash
-$ cd simplicio/grammar/
-$ java -jar $ANTLR4_JAR -visitor -no-listener -o ../src/antlr/ MathExpression.g4
+./compile.sh
 ```
 
-Avendo a disposizione tutti i sorgenti è ora possibile compilare il progetto:
-```shell
-$ cd ../src/
-$ javac -cp $ANTLR4_JAR: -d ../out/ Main.java
-```
+I file generati dalla compilazione sono nella cartella `simplicio/out/`.
 
-I file generati dalla compilazione vengono inseriti nella cartella `../out/`.
-
-## Esecuzione
-
-### Esecuzione tramite script (solo Linux e MacOS)
+## Esecuzione (solo Linux)
 
 Per eseguire il progetto basta lanciare lo script `run.sh` con l'espressione da risolvere come parametro:
 ```bash
@@ -62,18 +67,3 @@ $ ./run.sh "1+2*3"
 ```
 
 Lo script genererà i file sorgenti latex ed il file compilato nella directory `simplicio/output/` ed aprirà il file `dvi` con il programma predefinito di sistema.
-
-### Esecuzione *a mano*
-
-Per eseguire manualmente digitare:
-```shell
-$ cd simplicio/
-$ mkdir output
-$ cd out/
-$ java -cp $ANTLR4_JAR: Main "1+2*3" > ../output/latex.tex
-$ cd ../output/
-$ latex latex.tex
-```
-dove al posto di `1+2*3` va messa l'espressione da semplificare.
-
-Dopo aver eseguito questi comandi nella cartella `output/` sarà presente il file risultante `latex.dvi`.
